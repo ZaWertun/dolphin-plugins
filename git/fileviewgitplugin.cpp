@@ -72,8 +72,8 @@ FileViewGitPlugin::FileViewGitPlugin(QObject* parent, const QList<QVariant>& arg
     m_diffFileAction = new QAction(this);
     m_diffFileAction->setIcon(QIcon::fromTheme("kdiff3"));
     m_diffFileAction->setText(xi18nd("@action:inmenu", "<application>Git</application> Diff"));
-    connect(m_diffFileAction, SIGNAL(triggered()),
-            this, SLOT(diffFiles()));
+    connect(m_diffFileAction, &QAction::triggered,
+            this, &FileViewGitPlugin::diffFiles);
 
     m_showLocalChangesAction = new QAction(this);
     m_showLocalChangesAction->setIcon(QIcon::fromTheme("view-split-left-right"));
